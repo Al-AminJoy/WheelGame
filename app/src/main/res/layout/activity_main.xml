@@ -19,11 +19,11 @@
         android:src="@drawable/wheel"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_bottom_arrow"
-        android:layout_marginBottom="12dp"
-        android:rotation="180"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/belt"
+        android:padding="12dp"
+        android:layout_marginStart="6dp"
         app:layout_constraintStart_toStartOf="@id/wheel"
         app:layout_constraintEnd_toEndOf="@id/wheel"
         app:layout_constraintTop_toTopOf="@id/wheel"
