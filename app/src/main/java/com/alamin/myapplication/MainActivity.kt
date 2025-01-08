@@ -38,8 +38,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun spin() {
         //get any random sector index
-        //Change Here If you want to set a particular sector. Ex. 3,It will show 1
-        randomSectorIndex = random.nextInt(sectors.size)// the bound in exclusive
+        //Change Here If you want to set a particular sector. Ex. 3,It will show 1 or If 1, It will show 7
+        val index = sectors.indexOf(4)
+        Log.d(TAG, "spin: $index")
+        randomSectorIndex = random.nextInt(sectors.size)// the bound in exclusive// For Target Value sectors.size - (index+1)
         //generate a random degree to spin the wheel
         val randomDegree: Int = generateRandomDegreeToSpinTo()
         Log.d(TAG, "spin: $randomDegree")
