@@ -15,10 +15,9 @@ private const val TAG = "MainWheelActivity"
 class MainActivity : AppCompatActivity() {
     private lateinit var wheel: ImageView
     private val sectors: IntArray = intArrayOf(5,4,3,2,1,8,7,6)
-    lateinit var sectorDegrees: IntArray
+    private lateinit var sectorDegrees: IntArray
     private var randomSectorIndex = 0
     private var spinning = false
-
 
     private val random = Random()
 
@@ -43,9 +42,8 @@ class MainActivity : AppCompatActivity() {
         randomSectorIndex = random.nextInt(sectors.size)// the bound in exclusive
         //generate a random degree to spin the wheel
         val randomDegree: Int = generateRandomDegreeToSpinTo()
-
+        Log.d(TAG, "spin: $randomDegree")
         //do actual spinning use the rotation animation
-
         val rotateAnimation = RotateAnimation(
             0f,
             randomDegree.toFloat(),
@@ -55,8 +53,8 @@ class MainActivity : AppCompatActivity() {
             0.5f
         )
         //time for spinning
-        rotateAnimation.duration = 4000 //3.6 sec
-        rotateAnimation.fillAfter = true // filter
+        rotateAnimation.duration = 3000 //3 sec
+        rotateAnimation.fillAfter = true // not reset starting position wheel after spinning
         rotateAnimation.interpolator = DecelerateInterpolator() // start with high speed, slow down at the end
 
         rotateAnimation.setAnimationListener(object :Animation.AnimationListener{
@@ -90,6 +88,5 @@ class MainActivity : AppCompatActivity() {
             sectorDegrees[i] = (i+1) * sectorDegree
             Log.d(TAG, "generateSectorDegrees: "+sectorDegrees[i])
         }
-
     }
 }
